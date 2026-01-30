@@ -199,7 +199,7 @@ uint8_t pplan_sheep_move(int index)
 
 void pplan_print_score()
 {
-  sprintf(pplanc->Buffer," %05ld",score);
+  sprintf(pplanc->Buffer,"%05ld",score);
   pplanc->screen_font_print(0,0,pplanc->Buffer);
 }
 
@@ -249,7 +249,7 @@ uint8_t pplan_go(uint8_t key)
     }
   }
 
-  if(gdata%100==0)
+  if(gdata%30==0)
   {
     ret+=pplan_move();
     pplan_print();
@@ -264,14 +264,14 @@ uint8_t pplan_go(uint8_t key)
     pplan_show_message_box(PPLAN_MESSAGE_END);
     pplanc->delay_ms(100);
     pplan_play_sound(PPLAN_SOUND_END);
-    pplanc->delay_ms(2500);
+    pplanc->delay_ms(3000);
 
   }
 
   if(key=='0')
   {
     pplan_show_message_box(PPLAN_MESSAGE_EXIT);
-    pplanc->delay_ms(500);
+    pplanc->delay_ms(1000);
     ret+=1;
   }
 

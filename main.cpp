@@ -14,7 +14,6 @@ uint8_t sound_mute=0;
 char Buffer[64];
 uint8_t GBuf[128*8];
 
-
 void screen_update(void)
 {
 	simlcd_set_color(&LCD_BUFFER,FRCOLOR);
@@ -62,12 +61,14 @@ int loop(int key)
 {
     uint8_t ret;
 
-    if(key==80)key='*';//Left
-    else if(key==79)key='#';//Right
-    else if(key==41)key='0';//Esc
-    else if(key==0)key=1;   //Donot Init! just not ziro ;)
+    if(key==80)key='*';         //Left
+    else if(key==79)key='#';    //Right
+    else if(key==41)key='0';    //Esc
+    else if(key==0)key=1;       //Dont Init! just not ziro
+
     ret=pplan_go(key);
-    simlcd_delay(1);
+    simlcd_delay(5);
+
     return ret;
 }
 
