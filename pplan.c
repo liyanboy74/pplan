@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
 #include "pplan.h"
 
 #ifdef _WIN32
 #include <utilapiset.h>
+#else
+#include "main.h"
 #endif
 
 #define PPLAN_SHEEP_FIRST_POSITION 8
@@ -96,12 +97,12 @@ void pplan_show_message_box(enum pplan_message msgid)
     case PPLAN_MESSAGE_END    :sprintf(pplanc->Buffer,"Game Over"); break;
     case PPLAN_MESSAGE_EXIT   :sprintf(pplanc->Buffer,"Goodbye!");  break;
   }
-  pplanc->screen_font_print(4,3,pplanc->Buffer);
+  pplanc->screen_font_print(5,3,pplanc->Buffer);
 
   if(msgid==PPLAN_MESSAGE_END)
   {
     sprintf(pplanc->Buffer," %05ld ",score);
-    pplanc->screen_font_print(4,5,pplanc->Buffer);
+    pplanc->screen_font_print(5,5,pplanc->Buffer);
   }
   pplanc->screen_update();
 }
@@ -244,7 +245,7 @@ uint8_t pplan_go(uint8_t key)
       pplan_print();
       pplan_print_score();
       pplanc->screen_update();
-      // gkdata=10;
+      // gkdata=20;
     }
   }
 
