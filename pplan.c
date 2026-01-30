@@ -244,11 +244,11 @@ uint8_t pplan_go(uint8_t key)
       pplan_print();
       pplan_print_score();
       pplanc->screen_update();
-      gkdata=800;
+      // gkdata=10;
     }
   }
 
-  if(gdata%2000==0)
+  if(gdata%100==0)
   {
     ret+=pplan_move();
     pplan_print();
@@ -273,8 +273,6 @@ uint8_t pplan_go(uint8_t key)
     pplanc->delay_ms(500);
     ret+=1;
   }
-
-  pplanc->delay_ms(100);
 
   gdata++;
   return ret;
