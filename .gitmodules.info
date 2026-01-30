@@ -7,3 +7,6 @@
 [submodule "color"]
 	path = color
 	url = https://github.com/liyanboy74/color.git
+[submodule "simlcd"]
+	path = color
+	url = https://github.com/liyanboy74/simlcd.git

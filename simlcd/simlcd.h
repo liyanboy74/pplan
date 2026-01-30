@@ -8,7 +8,7 @@
 #include <SDL2/SDL_scancode.h>
 #include <SDL2/SDL_syswm.h>
 
-#define SIMLCD_USE_TOUCH
+// #define SIMLCD_USE_TOUCH
 
 
 typedef struct{
