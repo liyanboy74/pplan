@@ -1,4 +1,9 @@
 
+/*
+ By Liyanboy74
+ https://github.com/liyanboy74/simlcd
+*/
+
 #include "simlcd.h"
 
 SDL_Event windowEvent;
@@ -123,6 +128,10 @@ void simlcd_play()
       else if( windowEvent.type == SDL_KEYDOWN )
       {
         ret=loop((int)windowEvent.key.keysym.scancode);
+      }
+      else if( windowEvent.type == SDL_KEYUP )
+      {
+        ret=loop((int)-1);
       }
       else if(windowEvent.type>=SDL_MOUSEMOTION && windowEvent.type<=SDL_MOUSEWHEEL)
       {

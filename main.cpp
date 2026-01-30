@@ -1,3 +1,7 @@
+/**
+ * That file writen for Run PPlan game using SDL2
+ * By Liyanboy74
+ */
 #include "simlcd.h"
 #include "dispcolor.h"
 #include "font.h"
@@ -33,7 +37,9 @@ void screen_buf_clear(void)
 }
 void screen_font_print(uint8_t x,uint8_t y,char * String)
 {
-    dispcolor_printf(x*8,y*8,0,0,String);
+    // dispcolor_printf(x*8,y*8,0,0,String);
+    // dispcolor_printf_Bg(x*8,y*8,0,0x0000,color_24_to_16(BGCOLOR),String);
+    dispcolor_DrawString_Bg(x*8,y*8,0,String,0,color_24_to_16(BGCOLOR));
 }
 void screen_draw_rectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h)
 {
@@ -60,13 +66,16 @@ int main(int argc,char *argv[])
 int loop(int key)
 {
     uint8_t ret;
+    static int keyo=1;
 
-    if(key==80)key='*';         //Left
-    else if(key==79)key='#';    //Right
-    else if(key==41)key='0';    //Esc
-    else if(key==0)key=1;       //Dont Init! just not ziro
+    if(key==80)keyo='*';        //Left
+    else if(key==79)keyo='#';   //Right
+    else if(key==41)keyo='0';   //Esc
+    else if(key==-1)keyo=1;     //Release Key
+    else if(key==16)            //M
+    sound_mute=1;
 
-    ret=pplan_go(key);
+    ret=pplan_go(keyo);
     simlcd_delay(5);
 
     return ret;

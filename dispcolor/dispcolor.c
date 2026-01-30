@@ -7,6 +7,7 @@
 // �����: �������� ������ / Nadyrshin Ruslan
 //
 // Liyanboy74
+// https://github.com/liyanboy74/dispcolor
 //------------------------------------------------------------------------------
 #include <stdio.h>
 #include <stdlib.h>

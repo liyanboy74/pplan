@@ -47,7 +47,7 @@ static pplan_config_t *pplanc;
 
 void pplan_init(pplan_config_t *obj)
 {
-    pplanc=obj;
+  pplanc=obj;
 }
 
 void pplan_play_sound(enum pplan_sound id)
@@ -225,7 +225,7 @@ uint8_t pplan_go(uint8_t key)
     score=0;
 
     pplan_show_message_box(PPLAN_MESSAGE_START);
-    pplan_play_sound(0);
+    pplan_play_sound(PPLAN_SOUND_START);
     pplanc->delay_ms(500);
     pplan_clear();
     pplan_sheep_move(0);
@@ -245,11 +245,11 @@ uint8_t pplan_go(uint8_t key)
       pplan_print();
       pplan_print_score();
       pplanc->screen_update();
-      // gkdata=20;
+      gkdata=16;
     }
   }
 
-  if(gdata%30==0)
+  if(gdata%40==0)
   {
     ret+=pplan_move();
     pplan_print();

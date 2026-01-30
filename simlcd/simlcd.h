@@ -1,3 +1,8 @@
+/*
+ By Liyanboy74
+ https://github.com/liyanboy74/simlcd
+*/
+
 #ifndef __simlcd_h__
 #define __simlcd_h__
 

@@ -7,6 +7,7 @@
 // �����: �������� ������ / Nadyrshin Ruslan
 //
 // Liyanboy74
+// https://github.com/liyanboy74/dispcolor
 //------------------------------------------------------------------------------
 #ifndef _DISPCOLOR_H
 #define _DISPCOLOR_H

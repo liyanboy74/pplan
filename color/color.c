@@ -1,6 +1,6 @@
 /*
  By Liyanboy74
- https://github.com/liyanboy74
+ https://github.com/liyanboy74/color
 */
 
 #include <stdio.h>

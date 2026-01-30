@@ -1,3 +1,8 @@
+/*
+ By Liyanboy74
+ https://github.com/liyanboy74/color
+*/
+
 #ifndef __COLOR_H__
 #define __COLOR_H__
 
