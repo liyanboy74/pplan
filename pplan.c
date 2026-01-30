@@ -1,9 +1,15 @@
+/*
+ PPlan Game
+ By Liyanboy74
+ https://github.com/liyanboy74
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "pplan.h"
 
 #ifdef _WIN32
 #include <utilapiset.h>
+#elif defined(__unix__)
 #else
 #include "main.h"
 #endif
@@ -61,6 +67,7 @@ void pplan_play_sound(enum pplan_sound id)
     case PPLAN_SOUND_HART:
     case PPLAN_SOUND_BOMB: Beep(1000,100);break;
   }
+  #elif defined(__unix__)
   #else
   if(id==PPLAN_SOUND_START)
   {

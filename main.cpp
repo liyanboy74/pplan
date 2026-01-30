@@ -37,9 +37,7 @@ void screen_buf_clear(void)
 }
 void screen_font_print(uint8_t x,uint8_t y,char * String)
 {
-    // dispcolor_printf(x*8,y*8,0,0,String);
-    // dispcolor_printf_Bg(x*8,y*8,0,0x0000,color_24_to_16(BGCOLOR),String);
-    dispcolor_DrawString_Bg(x*8,y*8,0,String,0,color_24_to_16(BGCOLOR));
+    dispcolor_DrawString(x*8,y*8,0,String,0);
 }
 void screen_draw_rectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h)
 {

@@ -1,3 +1,8 @@
+/*
+ PPlan Game
+ By Liyanboy74
+ https://github.com/liyanboy74
+*/
 #ifndef _pplan_h
 #define _pplan_h
 
