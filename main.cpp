@@ -5,28 +5,40 @@
 
 #include "pplan.h"
 
+#define BGCOLOR 90,150,90
+#define FRCOLOR 0,0,0
+
 simlcd_buffer_t LCD_BUFFER;
 
 uint8_t sound_mute=0;
 char Buffer[64];
-uint8_t GBuf[64*128*8];
+uint8_t GBuf[128*8];
 
 
 void screen_update(void)
 {
+    dispcolor_FillScreen(color_24_to_16(BGCOLOR));
+	simlcd_set_color(&LCD_BUFFER,FRCOLOR);
 
+    for(int i=0;i<8;i++)
+    for(int j=0;j<128;j++)
+    {
+        for(int b=0;b<8;b++)
+            if((GBuf[(i*128)+j]>>b)&1) simlcd_draw_point(&LCD_BUFFER,j,(i*8)+b);
+    }
+    dispcolor_Update();
 }
 void screen_buf_clear(void)
 {
-    
+    memset(GBuf,0,sizeof(GBuf));
 }
 void screen_font_print(uint8_t x,uint8_t y,char * String)
 {
-
+    dispcolor_printf(0,0,0,0,String);
 }
 void screen_draw_rectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h)
 {
-
+    dispcolor_DrawRectangle(x,y,x+w,y+h,0);
 }
 
 int main(int argc,char *argv[])
@@ -36,10 +48,11 @@ int main(int argc,char *argv[])
     ,&screen_font_print,&screen_draw_rectangle,Buffer,GBuf};
 
     dispcolor_Init(128,64);
-    dispcolor_FillScreen(color_24_to_16(90,150,90));
+    dispcolor_FillScreen(color_24_to_16(BGCOLOR));
     dispcolor_Update();
 
     pplan_init(&pplan_config);
+    pplan_go(0);
 
     simlcd_play();
     return 0;

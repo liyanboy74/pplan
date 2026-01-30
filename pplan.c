@@ -274,6 +274,8 @@ uint8_t pplan_go(uint8_t key)
     ret+=1;
   }
 
+  pplanc->delay_ms(100);
+
   gdata++;
   return ret;
 }
